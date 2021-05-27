@@ -30,6 +30,7 @@ const App = () => {
   const [recipes, setRecipes] = useState(() => {
     fetch('/recipes/').then((resp) => {
       resp.json().then((json) => {
+        console.log(json);
         setRecipes(json);
       });
     });
@@ -39,6 +40,7 @@ const App = () => {
   const [ingredients, setIngredients] = useState(() => {
     fetch('/ingredients/').then((resp) => {
       resp.json().then((json) => {
+        console.log(json);
         setIngredients(json);
       });
     });
@@ -68,6 +70,7 @@ const App = () => {
       },
     }).then((resp) => {
       resp.json().then((json) => {
+        console.log(json);
         // add the new recipe to state
         setRecipes([...recipes, { id: `${recipes.length + 1}`, ...newRecipe }]);
         // clear new recipe state
@@ -91,6 +94,7 @@ const App = () => {
       },
     }).then((resp) => {
       resp.json().then((json) => {
+        console.log(json);
         // add new ingredient to ingredients
         setIngredients([
           ...ingredients,
